@@ -42,6 +42,11 @@ extension EnvironmentValues {
     @Entry
     @available(iOS 13.0, macCatalyst 13.1, tvOS 13.0, visionOS 1.0, *)
     public var pageControlCurrentPageIndicatorTint: UIColor? = nil
+    
+    /// A Boolean value that determines whether a ``PageControl/PageControl`` allows continuous interaction.
+    @Entry
+    @available(iOS 14.0, macCatalyst 14.0, tvOS 14.0, visionOS 1.0, *)
+    public var pageControlContinuousInteractionDisabled: Bool = false
 }
 
 // MARK: - ViewModifiers
@@ -90,5 +95,12 @@ extension View {
     nonisolated
     public func pageControlCurrentPageIndicatorTint(_ color: UIColor) -> some View {
         environment(\.pageControlCurrentPageIndicatorTint, color)
+    }
+    
+    /// A Boolean value that determines whether a ``PageControl/PageControl`` allows continuous interaction.
+    @available(iOS 14.0, macCatalyst 14.0, tvOS 14.0, visionOS 1.0, *)
+    nonisolated
+    public func pageControlContinuousInteractionDisabled(_ disabled: Bool = true) -> some View {
+        environment(\.pageControlContinuousInteractionDisabled, disabled)
     }
 }
