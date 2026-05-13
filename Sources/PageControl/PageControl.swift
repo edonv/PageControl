@@ -74,6 +74,9 @@ public struct PageControl: UIViewRepresentable {
 extension PageControl {
     @available(iOS 16.0, macCatalyst 16.0, tvOS 16.0, visionOS 1.0, *)
     public typealias Direction = UIPageControl.Direction
+    
+    @available(iOS 14.0, macCatalyst 14.0, tvOS 14.0, visionOS 1.0, *)
+    public typealias BackgroundStyle = UIPageControl.BackgroundStyle
 }
 
 @available(iOS 17, *)
