@@ -43,6 +43,9 @@ public struct PageControl: UIViewRepresentable {
         if #available(iOS 16.0, macCatalyst 16.0, tvOS 16.0, visionOS 1.0, *) {
             control.direction = context.environment.pageControlDirection
         }
+        if #available(iOS 14.0, macCatalyst 14.0, tvOS 14.0, visionOS 1.0, *) {
+            control.backgroundStyle = context.environment.pageControlBackgroundStyle
+        }
         
         return control
     }
