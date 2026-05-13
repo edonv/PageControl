@@ -14,10 +14,6 @@ public struct PageControl: UIViewRepresentable {
     public var numberOfPages: Int
     @Binding public var currentPage: Int
     
-    public func makeCoordinator() -> Coordinator {
-        Coordinator(self)
-    }
-    
     public func makeUIView(context: Context) -> UIPageControl {
         let control = UIPageControl()
         control.numberOfPages = numberOfPages
@@ -31,6 +27,10 @@ public struct PageControl: UIViewRepresentable {
     
     public func updateUIView(_ uiView: UIPageControl, context: Context) {
         uiView.currentPage = currentPage
+    }
+    
+    public func makeCoordinator() -> Coordinator {
+        Coordinator(self)
     }
     
     public class Coordinator: NSObject {
