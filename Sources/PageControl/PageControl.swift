@@ -9,6 +9,7 @@
 
 import SwiftUI
 
+/// A control that displays a horizontal series of dots, each of which corresponds to a page in the app’s document or other data-model entity.
 public struct PageControl: UIViewRepresentable {
     // MARK: Public Properties
     
