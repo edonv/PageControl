@@ -57,3 +57,16 @@ public struct PageControl: UIViewRepresentable {
         }
     }
 }
+
+@available(iOS 17, *)
+#Preview {
+    @Previewable @State
+    var currentPage: Int = 3
+    
+    Rectangle()
+        .fill(.orange)
+        .aspectRatio(4 / 3, contentMode: .fit)
+        .overlay(alignment: .bottom) {
+            PageControl(selection: $currentPage, pageCount: 5)
+        }
+}
