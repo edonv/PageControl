@@ -13,8 +13,15 @@ import SwiftUI
 public struct PageControl: UIViewRepresentable {
     // MARK: Public Properties
     
+    /// The current page, shown by the page control as a white dot.
+    ///
+    /// The property value is an integer specifying the current page shown minus one; thus a value of zero (the default) indicates the first page. A page control shows the current page as a white dot. Values outside the possible range are pinned to either 0 or ``pageCount`` minus 1.
     @Binding
     public var selection: Int
+    
+    /// The number of pages the receiver shows (as dots).
+    ///
+    /// The value of the property is the number of pages for the page control to show as dots. The default value is 0.
     public let pageCount: Int
     
     // MARK: Init
