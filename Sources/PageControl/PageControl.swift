@@ -8,7 +8,6 @@
 //
 
 import SwiftUI
-import UIKit
 
 public struct PageControl: UIViewRepresentable {
     // MARK: Public Properties
