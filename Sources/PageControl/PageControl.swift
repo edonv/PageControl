@@ -47,6 +47,10 @@ public struct PageControl: UIViewRepresentable {
         if #available(iOS 14.0, macCatalyst 14.0, tvOS 14.0, visionOS 1.0, *) {
             control.backgroundStyle = context.environment.pageControlBackgroundStyle
         }
+        if #available(iOS 13.0, macCatalyst 13.1, tvOS 13.0, visionOS 1.0, *) {
+            control.pageIndicatorTintColor = context.environment.pageControlPageIndicatorTint
+            control.currentPageIndicatorTintColor = context.environment.pageControlCurrentPageIndicatorTint
+        }
         
         return control
     }
