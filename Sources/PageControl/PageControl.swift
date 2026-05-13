@@ -97,6 +97,6 @@ extension PageControl {
         .fill(.orange)
         .aspectRatio(4 / 3, contentMode: .fit)
         .overlay(alignment: .bottom) {
-            PageControl(selection: $currentPage, pageCount: 5)
+            PageControl(selection: $currentPage, pageCount: 20)
         }
 }
