@@ -26,6 +26,10 @@ public struct PageControl: UIViewRepresentable {
     
     // MARK: Init
     
+    /// Creates a page control.
+    /// - Parameters:
+    ///   - selection: A binding to a property that describes the currently-selected page number.
+    ///   - pageCount: An integeder describing the number of pages the control shows.
     public init(
         selection: Binding<Int>,
         pageCount: Int
