@@ -12,7 +12,8 @@ import UIKit
 
 public struct PageControl: UIViewRepresentable {
     public var numberOfPages: Int
-    @Binding public var currentPage: Int
+    @Binding
+    public var currentPage: Int
     
     public func makeUIView(context: Context) -> UIPageControl {
         let control = UIPageControl()
