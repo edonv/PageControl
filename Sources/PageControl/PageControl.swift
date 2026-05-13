@@ -50,10 +50,22 @@ public struct PageControl: UIViewRepresentable {
         if #available(iOS 14.0, macCatalyst 14.0, tvOS 14.0, visionOS 1.0, *) {
             control.backgroundStyle = context.environment.pageControlBackgroundStyle
             control.allowsContinuousInteraction = !context.environment.pageControlContinuousInteractionDisabled
+            
+            // Indicator Images
+            control.preferredIndicatorImage = context.environment.pageControlIndicatorImages.preferred
+            for (page, image) in context.environment.pageControlIndicatorImages.perPage {
+                control.setIndicatorImage(image, forPage: page)
+            }
         }
         
         if #available(iOS 16.0, macCatalyst 16.0, tvOS 16.0, visionOS 1.0, *) {
             control.direction = context.environment.pageControlDirection
+            
+            // Indicator Images
+            control.preferredCurrentPageIndicatorImage = context.environment.pageControlIndicatorImages.currentPage
+            for (page, image) in context.environment.pageControlIndicatorImages.currentPerPage {
+                control.setCurrentPageIndicatorImage(image, forPage: page)
+            }
         }
         
         return control
