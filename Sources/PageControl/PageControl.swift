@@ -54,6 +54,11 @@ public struct PageControl: UIViewRepresentable {
         uiView.currentPage = selection
     }
     
+    @available(iOS 16.0, macCatalyst 16.0, tvOS 16.0, visionOS 1.0, *)
+    public func sizeThatFits(_ proposal: ProposedViewSize, uiView: UIPageControl, context: Context) -> CGSize? {
+        return uiView.size(forNumberOfPages: pageCount)
+    }
+    
     public func makeCoordinator() -> Coordinator {
         Coordinator(self)
     }
