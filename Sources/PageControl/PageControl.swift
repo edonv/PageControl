@@ -164,8 +164,8 @@ extension PageControl {
             .pageControlContinuousInteractionDisabled(false)
             .pageControlIndicatorImage(.init(systemName: "plus.circle.fill"))
             .pageControlIndicatorImage(.init(systemName: "gamecontroller"), forPage: 0)
-            .pageControlCurrentPageIndicatorImage(.init(systemName: "gamecontroller.fill"), forPage: 0)
-            .pageControlCurrentPageIndicatorImage(.init(systemName: "book.circle.fill"))
+            .pageControlCurrentIndicatorImage(.init(systemName: "gamecontroller.fill"), forPage: 0)
+            .pageControlCurrentIndicatorImage(.init(systemName: "book.circle.fill"))
 //            .direction(.rightToLeft)
     }
     .animation(.default, value: scrollPosition.wrappedValue)

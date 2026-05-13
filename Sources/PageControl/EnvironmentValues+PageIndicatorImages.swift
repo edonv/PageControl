@@ -72,7 +72,7 @@ extension View {
     ///   - page: Optionally, the index of a page to specifically override. Leave `nil` to set for all pages. The value must be greater than or equal to `0` and less than ``PageControl/PageControl/pageCount``.
     @available(iOS 16.0, macCatalyst 16.0, tvOS 16.0, visionOS 1.0, *)
     nonisolated
-    public func pageControlCurrentPageIndicatorImage(
+    public func pageControlCurrentIndicatorImage(
         _ image: UIImage?,
         forPage page: Int? = nil
     ) -> some View {
