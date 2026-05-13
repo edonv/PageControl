@@ -114,9 +114,18 @@ extension PageControl {
     var currentPage: Int = 3
     
     Rectangle()
-        .fill(.orange)
+        .fill(.placeholder)
         .aspectRatio(4 / 3, contentMode: .fit)
         .overlay(alignment: .bottom) {
             PageControl(selection: $currentPage, pageCount: 20)
+                .pageControlBackgroundStyle(.prominent)
+                .pageControlPageIndicatorTint(.systemBlue)
+                .pageControlCurrentPageIndicatorTint(.systemGreen)
+                .pageControlContinuousInteractionDisabled(false)
+                .pageControlIndicatorImage(.init(systemName: "plus.circle.fill"))
+                .pageControlIndicatorImage(.init(systemName: "gamecontroller"), forPage: 0)
+                .pageControlCurrentPageIndicatorImage(.init(systemName: "gamecontroller.fill"), forPage: 0)
+                .pageControlCurrentPageIndicatorImage(.init(systemName: "book.circle.fill"))
+//                .direction(.rightToLeft)
         }
 }
