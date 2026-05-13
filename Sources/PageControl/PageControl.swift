@@ -66,6 +66,13 @@ public struct PageControl: UIViewRepresentable {
     }
 }
 
+// MARK: Namespaced Typealiases
+
+extension PageControl {
+    @available(iOS 16.0, macCatalyst 16.0, tvOS 16.0, visionOS 1.0, *)
+    public typealias Direction = UIPageControl.Direction
+}
+
 @available(iOS 17, *)
 #Preview {
     @Previewable @State
