@@ -28,6 +28,20 @@ extension EnvironmentValues {
     @Entry
     @available(iOS 14.0, macCatalyst 14.0, tvOS 14.0, visionOS 1.0, *)
     public var pageControlBackgroundStyle: PageControl.BackgroundStyle = .automatic
+    
+    /// The tint color to apply to the current page indicator of a ``PageControl/PageControl``.
+    ///
+    /// The default color is a translucent white for the page indicator dot. The page indicator dot is used for all of the pages not visible on the screen. Assigning a new value to this property does not automatically change the color in the ``PageControl/SwiftUICore/EnvironmentValues/pageControlCurrentPageIndicatorTint`` property because the value for these two properties is not automatically derived from the other. Both properties must be specified independently. Similarly, no alpha is applied to this property for you. It is recommended (but not required) that the color you specify for this parameter contains some transparency–i.e. the alpha value should be less than 1.0.
+    @Entry
+    @available(iOS 13.0, macCatalyst 13.1, tvOS 13.0, visionOS 1.0, *)
+    public var pageControlPageIndicatorTint: UIColor? = nil
+    
+    /// The tint color to apply to the current page indicator of a ``PageControl/PageControl``.
+    ///
+    /// The default color is an opaque white for the current page indicator dot. The current page indicator dot is used to indicate the currently visible page. Assigning a new value to this property does not automatically change the color in the ``PageControl/SwiftUICore/EnvironmentValues/pageControlPageIndicatorTint`` property because the value for these two properties is not automatically derived from the other. Both properties must be specified independently.
+    @Entry
+    @available(iOS 13.0, macCatalyst 13.1, tvOS 13.0, visionOS 1.0, *)
+    public var pageControlCurrentPageIndicatorTint: UIColor? = nil
 }
 
 // MARK: - ViewModifiers
@@ -58,5 +72,23 @@ extension View {
     nonisolated
     public func pageControlBackgroundStyle(_ style: PageControl.BackgroundStyle) -> some View {
         environment(\.pageControlBackgroundStyle, style)
+    }
+    
+    /// The tint color to apply to the current page indicator of a ``PageControl/PageControl``.
+    ///
+    /// The default color is a translucent white for the page indicator dot. The page indicator dot is used for all of the pages not visible on the screen. Assigning a new value to this property does not automatically change the color in the ``PageControl/SwiftUICore/EnvironmentValues/pageControlCurrentPageIndicatorTint`` property because the value for these two properties is not automatically derived from the other. Both properties must be specified independently. Similarly, no alpha is applied to this property for you. It is recommended (but not required) that the color you specify for this parameter contains some transparency–i.e. the alpha value should be less than 1.0.
+    @available(iOS 13.0, macCatalyst 13.1, tvOS 13.0, visionOS 1.0, *)
+    nonisolated
+    public func pageControlPageIndicatorTint(_ color: UIColor) -> some View {
+        environment(\.pageControlPageIndicatorTint, color)
+    }
+    
+    /// The tint color to apply to the current page indicator of a ``PageControl/PageControl``.
+    ///
+    /// The default color is an opaque white for the current page indicator dot. The current page indicator dot is used to indicate the currently visible page. Assigning a new value to this property does not automatically change the color in the ``PageControl/SwiftUICore/EnvironmentValues/pageControlPageIndicatorTint`` property because the value for these two properties is not automatically derived from the other. Both properties must be specified independently.
+    @available(iOS 13.0, macCatalyst 13.1, tvOS 13.0, visionOS 1.0, *)
+    nonisolated
+    public func pageControlCurrentPageIndicatorTint(_ color: UIColor) -> some View {
+        environment(\.pageControlCurrentPageIndicatorTint, color)
     }
 }
