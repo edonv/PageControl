@@ -11,13 +11,13 @@ import SwiftUI
 import UIKit
 
 public struct PageControl: UIViewRepresentable {
-    public var numberOfPages: Int
+    public var pageCount: Int
     @Binding
-    public var currentPage: Int
+    public var selection: Int
     
     public func makeUIView(context: Context) -> UIPageControl {
         let control = UIPageControl()
-        control.numberOfPages = numberOfPages
+        control.numberOfPages = pageCount
         control.addTarget(
             context.coordinator,
             action: #selector(Coordinator.updateCurrentPage(sender:)),
@@ -27,7 +27,7 @@ public struct PageControl: UIViewRepresentable {
     }
     
     public func updateUIView(_ uiView: UIPageControl, context: Context) {
-        uiView.currentPage = currentPage
+        uiView.currentPage = selection
     }
     
     public func makeCoordinator() -> Coordinator {
@@ -43,7 +43,7 @@ public struct PageControl: UIViewRepresentable {
         
         @objc
         func updateCurrentPage(sender: UIPageControl) {
-            control.currentPage = sender.currentPage
+            control.selection = sender.currentPage
         }
     }
 }
