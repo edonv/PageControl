@@ -110,21 +110,51 @@ extension PageControl {
 @available(iOS 17, *)
 #Preview {
     @Previewable @State
-    var currentPage: Int = 3
+    var currentPage: Int = 0
     
-    Rectangle()
-        .fill(.placeholder)
-        .aspectRatio(4 / 3, contentMode: .fit)
-        .overlay(alignment: .bottom) {
-            PageControl(selection: $currentPage, pageCount: 20)
-                .pageControlBackgroundStyle(.prominent)
-                .pageControlPageIndicatorTint(.systemBlue)
-                .pageControlCurrentPageIndicatorTint(.systemGreen)
-                .pageControlContinuousInteractionDisabled(false)
-                .pageControlIndicatorImage(.init(systemName: "plus.circle.fill"))
-                .pageControlIndicatorImage(.init(systemName: "gamecontroller"), forPage: 0)
-                .pageControlCurrentPageIndicatorImage(.init(systemName: "gamecontroller.fill"), forPage: 0)
-                .pageControlCurrentPageIndicatorImage(.init(systemName: "book.circle.fill"))
-//                .direction(.rightToLeft)
+    var scrollPosition: Binding<Int?> = .init {
+        currentPage
+    } set: { newValue in
+        currentPage = newValue ?? 0
+    }
+    
+    let colors: [Color] = [
+        .black,
+        .red,
+        .blue,
+        .orange,
+        .yellow,
+        .cyan,
+        .purple
+    ]
+    
+    ScrollView(.horizontal) {
+        HStack(spacing: 0) {
+            ForEach(colors.indices, id: \.self) { i in
+                Rectangle()
+                    .fill(colors[i])
+                    .aspectRatio(4 / 3, contentMode: .fit)
+                    .containerRelativeFrame([.horizontal])
+                    .id(i)
+            }
         }
+        .scrollTargetLayout()
+    }
+    .scrollTargetBehavior(.viewAligned)
+    .scrollPosition(id: scrollPosition)
+    .scrollIndicators(.hidden, axes: .horizontal)
+    .background(.placeholder)
+    .overlay(alignment: .bottom) {
+        PageControl(selection: $currentPage, pageCount: colors.count)
+            .pageControlBackgroundStyle(.prominent)
+            .pageControlPageIndicatorTint(.systemBlue)
+            .pageControlCurrentPageIndicatorTint(.systemGreen)
+            .pageControlContinuousInteractionDisabled(false)
+            .pageControlIndicatorImage(.init(systemName: "plus.circle.fill"))
+            .pageControlIndicatorImage(.init(systemName: "gamecontroller"), forPage: 0)
+            .pageControlCurrentPageIndicatorImage(.init(systemName: "gamecontroller.fill"), forPage: 0)
+            .pageControlCurrentPageIndicatorImage(.init(systemName: "book.circle.fill"))
+//            .direction(.rightToLeft)
+    }
+    .animation(.default, value: scrollPosition.wrappedValue)
 }
