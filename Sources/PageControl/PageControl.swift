@@ -11,9 +11,13 @@ import SwiftUI
 import UIKit
 
 public struct PageControl: UIViewRepresentable {
+    // MARK: Public Properties
+    
     @Binding
     public var selection: Int
     public let pageCount: Int
+    
+    // MARK: Init
     
     public init(
         selection: Binding<Int>,
@@ -22,6 +26,8 @@ public struct PageControl: UIViewRepresentable {
         self._selection = selection
         self.pageCount = pageCount
     }
+    
+    // MARK: UIViewRepresentable
     
     public func makeUIView(context: Context) -> UIPageControl {
         let control = UIPageControl()
