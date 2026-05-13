@@ -39,6 +39,7 @@ public struct PageControl: UIViewRepresentable {
             for: .valueChanged
         )
         
+        // Custom EnvironmentValues
         control.hidesForSinglePage = context.environment.pageControlHidesForSinglePage
         if #available(iOS 16.0, macCatalyst 16.0, tvOS 16.0, visionOS 1.0, *) {
             control.direction = context.environment.pageControlDirection
