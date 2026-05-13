@@ -10,14 +10,14 @@ import SwiftUI
 // MARK: - Entries
 
 extension EnvironmentValues {
-    /// Hides the page control when there is only one page.
+    /// Hides a ``PageControl/PageControl`` when there is only one page.
     ///
     /// Assign a value of `true` to hide the page control when there is only one page.
     /// Assign `false` (the default) to show the page control if there is only one page.
     @Entry
     public var pageControlHidesForSinglePage: Bool = false
     
-    /// The layout direction of the page indicators.
+    /// The layout direction of the page indicators in a ``PageControl/PageControl``.
     ///
     /// The default value is [`UIPageControl.Direction.natural`](https://developer.apple.com/documentation/uikit/uipagecontrol/direction-swift.enum/natural).
     @Entry
