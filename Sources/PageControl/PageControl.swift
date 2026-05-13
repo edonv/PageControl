@@ -15,6 +15,14 @@ public struct PageControl: UIViewRepresentable {
     public var selection: Int
     public let pageCount: Int
     
+    public init(
+        selection: Binding<Int>,
+        pageCount: Int
+    ) {
+        self._selection = selection
+        self.pageCount = pageCount
+    }
+    
     public func makeUIView(context: Context) -> UIPageControl {
         let control = UIPageControl()
         control.numberOfPages = pageCount
