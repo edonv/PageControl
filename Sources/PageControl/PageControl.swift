@@ -96,7 +96,7 @@ public struct PageControl: UIViewRepresentable {
     }
     
     public class Coordinator: NSObject {
-        let control: PageControl
+        private let control: PageControl
         
         init(_ control: PageControl) {
             self.control = control
