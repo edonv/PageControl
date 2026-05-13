@@ -45,7 +45,7 @@ public struct PageControl: UIViewRepresentable {
     }
     
     public class Coordinator: NSObject {
-        var control: PageControl
+        let control: PageControl
         
         init(_ control: PageControl) {
             self.control = control
