@@ -39,6 +39,8 @@ public struct PageControl: UIViewRepresentable {
             for: .valueChanged
         )
         
+        control.hidesForSinglePage = context.environment.pageControlHidesForSinglePage
+        
         return control
     }
     
