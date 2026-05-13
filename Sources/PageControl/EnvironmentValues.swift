@@ -52,7 +52,7 @@ extension EnvironmentValues {
 // MARK: - ViewModifiers
 
 extension View {
-    /// Hides the page control when there is only one page.
+    /// Hides a ``PageControl/PageControl`` when there is only one page.
     ///
     /// Assign a value of `true` to hide the page control when there is only one page.
     /// Assign `false` (the default) to show the page control if there is only one page.
@@ -61,7 +61,7 @@ extension View {
         environment(\.pageControlHidesForSinglePage, hide)
     }
     
-    /// The layout direction of the page indicators.
+    /// The layout direction of the page indicators in a ``PageControl/PageControl``.
     ///
     /// The default value is [`UIPageControl.Direction.natural`](https://developer.apple.com/documentation/uikit/uipagecontrol/direction-swift.enum/natural).
     @available(iOS 16.0, macCatalyst 16.0, tvOS 16.0, visionOS 1.0, *)
