@@ -123,7 +123,7 @@ extension PageControl {
     @Previewable @State
     var currentPage: Int = 0
     
-    var scrollPosition: Binding<Int?> = .init {
+    let scrollPosition: Binding<Int?> = .init {
         currentPage
     } set: { newValue in
         currentPage = newValue ?? 0
