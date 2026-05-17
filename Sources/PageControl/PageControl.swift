@@ -118,7 +118,7 @@ extension PageControl {
     public typealias BackgroundStyle = UIPageControl.BackgroundStyle
 }
 
-@available(iOS 17, *)
+@available(iOS 17, macCatalyst 17, tvOS 17, visionOS 1, *)
 #Preview {
     @Previewable @State
     var currentPage: Int = 0
